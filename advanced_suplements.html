@@ -1,0 +1,42 @@
+{% extends "estrutura.html" %}
+
+{% block conteudo %}
+
+        <h3 class="txtColor" style="text-align: center;" >
+            ADVANCED SUPLEMENTS
+        </h3> <!-- o h3 define o tamanho da fonte indo até o h6 -->
+
+        <p>
+            {{descricao_pagina}} <!--Define Uma Variavel Em Python-->
+        </p>
+
+           <table class="table table-striped"> <!--Essa parte de table table-hover acrescenta uma visualizaçao melhor para o usuario-->
+            <thead class= "table-dark"> <!-- cabeçalho de tabela -->
+                <tr style="text-align: center;"> <!-- linha da tabela-->
+                    <th>Suplemento</th> <!-- titulo head -->
+                    <th>Marca</th>
+                    <th>Preço R$</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for advanced_suplements in todos_produtos_adv %} <!-- Resgata uma variavel do python, com o % crio uma estrutura em blocos -->
+                <tr style="text-align: center;">
+                    <td>{{ advanced_suplements.nome_adv  }}</td> <!-- Dados da tabela -->
+                    <td>{{ advanced_suplements.marca_adv }}</td>
+                    <td>{{ advanced_suplements.preco_adv }}</td>
+
+                    <td style="text-align: end;">
+                        <a class="btn btn-secondary" href="{{ url_for('editar_produto_adv', id = advanced_suplements.id_adv) }}" >Editar</a> <!--Chama uma função do python-->
+
+                        <a class="btn btn-danger" href="{{url_for ('excluir_produto_adv',id = advanced_suplements.id_adv)}}" >Excluir</a>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+{% endblock %}

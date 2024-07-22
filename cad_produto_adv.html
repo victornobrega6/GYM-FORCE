@@ -1,0 +1,38 @@
+{% extends "estrutura.html" %}
+
+{% block conteudo %}
+<body >
+    <div class="container d-flex justify-content-center align-items-center" style="height: 70vh;">
+        <form method="post" action="/adicionar_adv" class="text-center">
+            <div class="mb-3" style="background-color: #a8a8a8e5; padding: 40px; border-radius: 10px;">
+                <!-- Adicionado estilo de fundo e padding à div -->
+                <div class="mb-3">
+                    <label class="form-label">
+                        <p class="text-decoration-underline">Nome Produto</p>
+                    </label>
+                    <input class="form-control" type="text" name="txtNome" placeholder="Ex: Deca-Durabolin">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <p class="text-decoration-underline">Marca</p>
+                    </label>
+                    <input class="form-control" type="text" name="txtMarca" placeholder="Ex: Astrazenica">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        <p class="text-decoration-underline">Preço</p>
+                    </label>
+                    <input class="form-control" type="text" name="txtPreco" placeholder="Ex: 50.00">
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-outline-light">Cadastrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+{% endblock %}
+

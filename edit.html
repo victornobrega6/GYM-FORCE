@@ -1,0 +1,31 @@
+{% extends "estrutura.html" %}
+
+{% block conteudo %}
+    
+    <form method="post" action='/upgrade'>
+        <!--O comando abaixo cria o ID oculto para atualizar o produto selecionado-->
+        <input type="hidden" name = "txtId" value="{{produto.id_produto}}">
+
+        <div class="mb-3">
+            <label class="form-label">Nome Produto</label>
+            <input class="form-control" type="text" name="txtNome" value="{{produto.nome_produto}}"> <!--ISSO FAZ COM QUE FIQUE UM EXEMPLO PARA O USUARIO DIGITAR-->
+            
+        </div>
+
+        <div class="mb-3">
+            <label lass="form-label">Marca</label>
+            <input class="form-control"  type="text" name="txtMarca" value="{{produto.marca_produto}}">
+        </div>
+
+        <div class="mb-3">
+            <label lass="form-label">Preço R$</label>
+            <input class="form-control"  type="text" name="txtPreco"value="{{produto.preco_produto}}">
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-secondary">Atualizar produto​</button>
+        </div>
+    </form>
+
+{% endblock %}
+

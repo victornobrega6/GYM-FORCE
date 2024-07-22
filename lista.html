@@ -1,0 +1,45 @@
+{% extends "estrutura.html" %}
+
+{% block conteudo %}
+    <form method="post" action='/lista'>
+        
+          <h3 class="txtColor" style="text-align: center;">
+                    Suplementos Cadastrados
+            </h3>
+                             <!-- o h3 define o tamanho da fonte indo até o h6 -->
+         
+        <p>
+            {{descricao_pagina}} <!--Define Uma Variavel Em Python-->
+        </p>
+        
+           <table class="table table-striped"> <!--Essa parte de table table-hover acrescenta uma visualizaçao melhor para o usuario-->
+            <thead class= "table-dark"> <!-- cabeçalho de tabela -->
+                <tr style="text-align: center;"> <!-- linha da tabela-->
+                    <th>Suplemento</th> <!-- titulo head -->
+                    <th>Marca</th>
+                    <th>Preço R$</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for produto in todos_produtos %} <!-- Resgata uma variavel do python, com o % crio uma estrutura em blocos -->
+                <tr style="text-align: center;">
+                    <td>{{ produto.nome_produto  }}</td> <!-- Dados da tabela -->
+                    <td>{{ produto.marca_produto }}</td>
+                    <td>{{ produto.preco_produto }}</td>
+
+                    <td style="text-align: end;">
+                        <a class="btn btn-secondary" href="{{ url_for('editar_produto', id = produto.id_produto) }}">Editar</a> <!--Chama uma função do python-->
+
+                        <a class="btn btn-danger" href="{{url_for ('excluir_produto',id = produto.id_produto)}}">Excluir</a>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </form>
+{% endblock %}

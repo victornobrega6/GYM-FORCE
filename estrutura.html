@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista de Produtos</title>
+        <link rel ="stylesheet" href="../static/bootstrap.css">
+        <link rel ="stylesheet" href="../static/style.css">
+        
+    </head>
+
+    <body class="backg">
+
+      <!--ABAIXO É A ESTRUTURA PARA APRESENTAR UMA MENSAGEM PARA O USER-->
+      {%with messages = get_flashed_messages()%}
+      {%if messages %}
+        <ul id="messages" class="list-unstyled">
+          {% for message in messages %}
+            <li class="alert alert-success">{{message}}</li>
+          {%endfor%}
+        </ul>
+       {%endif%}
+      {%endwith%}
+        <ul class="nav justify-content-center fundo">
+          <li class="nav-item">
+            <a class ="nav-link" href="/inicio">
+              <button type="button" class="btn btn-primary" role="button" data-bs-toggle="button">INICIO</button>
+            </a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" href="/lista">
+              <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true">ESTOQUE SUPLEMENTOS</button>
+            </a>
+        </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cadastrar">
+                <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true">CADASTRAR SUPLEMENTOS</button>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a  class="nav-link" href="/advanced_suplements">
+                <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true">ESTOQUE ANABOLIZANTE</button>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cadastrar_adv">
+                <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true">CADASTRAR ANABOLIZANTE</button>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sair">
+                <button type="button" class="btn btn-secondary">SAIR</button>
+              </a>
+            </li>
+            
+          </ul>
+        <div class ="container">
+            {% block conteudo %}
+            {% endblock %}
+        </div>
+
+
+    </body>
+</html>
